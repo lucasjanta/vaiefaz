@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+}
+
+ul img{
+    width: 2rem;
+}
+
+
+
+
