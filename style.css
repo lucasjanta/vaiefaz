@@ -28,6 +28,34 @@ ul img{
     width: 2rem;
 }
 
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.inputtexts{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.botoesform{
+    display: flex;
+    align-items: flex-end;
+    gap: 0.4rem;
+}
+
+.botoesform input[id="botaomais"]{
+    width: 2rem;
+}
+
 
 
 
