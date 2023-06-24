@@ -8,17 +8,19 @@ function apertarEspaco(inputcounter) {
         newElement.type = 'text';
         newElement.id = `p${inputcounter}`;
         divinputs.appendChild(newElement);
+        newElement.addEventListener('keydown', (event) => {
+            if (event.code === 'Space') {
+                apertarEspaco(inputs.length);
+            }
+        })
     
     inputs = document.querySelectorAll('input[type="text"]');
 }
 
 
-function addInput() {
-    
-}
-
 inputs[inputs.length - 1].addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
+
         apertarEspaco(inputs.length);
         console.log(inputs);
     }
