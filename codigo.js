@@ -3,7 +3,7 @@ const divinputs = document.querySelector('.inputtexts');
 const botaosalvar = document.querySelector('#botaosalvar');
 const botaomais = document.querySelector('#botaomais');
 
-function apertarEspaco(inputcounter) {
+function apertarTeclasEspecificas(inputcounter) {
         inputs[inputcounter - 1].disabled = true;
         var newElement = document.createElement('input');
         newElement.type = 'text';
@@ -12,45 +12,22 @@ function apertarEspaco(inputcounter) {
         newElement.focus();
         newElement.addEventListener('keydown', (event) => {
             if (event.code === 'Space') {
-                apertarEspaco(inputs.length);
+                apertarTeclasEspecificas(inputs.length);
+            }
+            if (event.code === 'Backspace') {
+                
+                console.log("funciona")
             }
         })
 
     inputs = document.querySelectorAll('input[type="text"]');
+    console.log(inputs);
 }
 
 
 inputs[inputs.length - 1].addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
+        apertarTeclasEspecificas(inputs.length);
         
-        apertarEspaco(inputs.length);
-        console.log(inputs);
     }
 })
-
-
-
-/* let inputcounter = inputs.length;
-function addInput(inputcounter){
-    inputs[inputcounter].addEventListener('keydown', (event) => {
-        if (event.code === 'Space' || botaomais.click()) {
-            inputcounter++;
-            console.log("espaço pressionado")
-            var newElement = document.createElement('input');
-            newElement.type = 'text';
-            newElement.id = `p${inputcounter}`;
-            divinputs.appendChild(newElement);
-            inputs = document.querySelectorAll('input[type="text"]');
-            console.log(inputs);
-            event.preventDefault();
-            }
-    })
-}
-
-botaomais.addEventListener('click', (event) => {
-    addInput(inputcounter);
-    event.preventDefault();
-})
-
-
-addInput(0); */
