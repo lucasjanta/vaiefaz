@@ -13,15 +13,20 @@ function apertarTeclasEspecificas(inputcounter) {
         newElement.addEventListener('keydown', (event) => {
             if (event.code === 'Space') {
                 apertarTeclasEspecificas(inputs.length);
-            }
-            if (event.code === 'Backspace') {
-                
+            }if (event.code === 'Backspace' && newElement.value.length === 0) {
+                voltaPalavras(newElement);
                 console.log("funciona")
             }
         })
 
     inputs = document.querySelectorAll('input[type="text"]');
     console.log(inputs);
+}
+
+function voltaPalavras(ultimoelemento) {
+    inputs[inputs.length - 2].disabled = false;
+    inputs[inputs.length - 2].focus();
+    ultimoelemento.remove();
 }
 
 
