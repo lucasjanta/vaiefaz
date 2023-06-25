@@ -24,9 +24,11 @@ function apertarTeclasEspecificas(inputcounter) {
 }
 
 function voltaPalavras(ultimoelemento) {
-    inputs[inputs.length - 2].disabled = false;
-    inputs[inputs.length - 2].focus();
     ultimoelemento.remove();
+    inputs = document.querySelectorAll('input[type="text"]');
+    inputs[inputs.length - 1].disabled = false;
+    inputs[inputs.length - 1].focus();
+    
 }
 
 
