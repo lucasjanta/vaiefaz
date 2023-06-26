@@ -2,6 +2,8 @@ let inputs = document.querySelectorAll('input[type="text"]');
 const divinputs = document.querySelector('.inputtexts');
 const botaosalvar = document.querySelector('#botaosalvar');
 const botaomais = document.querySelector('#botaomais');
+const form = document.querySelector('.form');
+var atividades = {};
 
 function apertarTeclasEspecificas(inputcounter) {
         inputs[inputcounter - 1].disabled = true;
@@ -31,10 +33,10 @@ function voltaPalavras(ultimoelemento) {
     
 }
 
-
 inputs[inputs.length - 1].addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
         apertarTeclasEspecificas(inputs.length);
         
     }
 })
+

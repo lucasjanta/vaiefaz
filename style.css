@@ -32,13 +32,18 @@ ul img{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1.5rem;
+    margin: 1.5rem auto;
 }
 
 .form{
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.form p{
+    white-space: nowrap;
 }
 
 .inputtexts{
