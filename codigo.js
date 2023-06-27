@@ -20,6 +20,9 @@ function apertarTeclasEspecificas(inputcounter) {
             if (event.code === 'Backspace' && newElement.value.length === 0) {
                 voltaPalavras(newElement);
             }
+            if (event.code === 'Enter' && inputs.length > 1) {
+                botaosalvar.click();
+            }
         })
 
     inputs = document.querySelectorAll('input[type="text"]');
@@ -35,15 +38,15 @@ function voltaPalavras(ultimoelemento) {
 }
 
 function guardarNomesChaves() {
-    var totalitens = localStorage.length;
-    var nomesChaves = [];
+    var numerochaves = localStorage.length;
+    var chaves = [];
     
-    for (var i = 0; i < totalitens; i++) {
-        nomesChaves.push(localStorage.key(i));
+    for (var i = 0; i < numerochaves; i++) {
+        chaves.push(localStorage.key(i));
     }
     
-    console.log(nomesChaves);
-    return nomesChaves;
+    console.log(chaves);
+    return chaves;
 }
 
 
@@ -63,31 +66,25 @@ botaomais.addEventListener('click', () => {
 botaosalvar.addEventListener('click', () => {
     var nomesChaves = guardarNomesChaves(); //guardar o nome das chaves em um array
     if (nomesChaves.length === 0) { //se o array estiver vazio
-        localStorage.setItem(`${inputs[0].value}`, inputs[1].value); //salva o nome das chaves
+        localStorage.setItem(`${inputs[0].value}`, JSON.stringify(inputs[1].value));//salva o nome das chaves
+        nomesChaves = guardarNomesChaves();
+        
     } else {
+        var chaveExiste = false;
         for (let i = 0; i < nomesChaves.length; i++) { //percorre o array
             if (inputs[0].value === nomesChaves[i]) { //se o nome da chave for igual ao input
-                var valorAtual = localStorage.getItem(nomesChaves[i]); //pega o valor da chave
-                valorAtual = JSON.stringify(valorAtual);
-                console.log(valorAtual);
-                var arrayItens;
-                if (valorAtual === null || valorAtual === '') {
-                    arrayItens = [];
-                } else {
-                arrayItens = JSON.parse(valorAtual);
-                }
-                arrayItens.push(inputs[1].value);
-                var valorAtualizado = JSON.stringify(arrayItens);
-                localStorage.setItem(`${nomesChaves[i]}`, valorAtualizado);
-            } else{
-                localStorage.setItem(`${inputs[0].value}`, inputs[1].value);
-                
-            }
+                console.log("ja existe");
+                localStorage.setItem(`${inputs[0].value}`, [localStorage.getItem(`${inputs[0].value}`), JSON.stringify(inputs[1].value)]);
+                chaveExiste = true;
+        }
+        
+        }
+        if(!chaveExiste){
+            localStorage.setItem(`${inputs[0].value}`, JSON.stringify(inputs[1].value));
         }
     }
     
     guardarNomesChaves();
-    
 })
 
 
