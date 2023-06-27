@@ -86,15 +86,25 @@ ul img{
     border-radius: 20px;
 }
 
-.listadepalavras{
-    border: 2px solid black;
+.divex{
     position: relative;
-    width: 90%;
-    height: 50vh;
-    margin: 2rem auto;
 }
 
-.listadepalavras p{
+.listadepalavras{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    border: 2px solid black;
+    gap: 1rem;
+    width: 90%;
+    height: fit-content;
+    margin: 2rem auto;
+    overflow-x: hidden;
+    
+}
+
+.atividadestitulo{
     position: absolute;
     color: black;
     background-color: white;
@@ -105,5 +115,30 @@ ul img{
     transform: translateX(-50%);
     top: -1.3rem;
 }
+
+.atividadeexemplo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.sliderAtividade{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 0.6rem;
+}
+
+.sliderAtividade p{
+    white-space: nowrap;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 0 0.6rem;
+    font-size: 0.8rem;
+}
+
+
+
 
 
