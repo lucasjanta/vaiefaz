@@ -3,6 +3,7 @@ const divinputs = document.querySelector('.inputtexts');
 const botaosalvar = document.querySelector('#botaosalvar');
 const botaomais = document.querySelector('#botaomais');
 const form = document.querySelector('.form');
+const listaPalavras = document.querySelector('.listadepalavras');
 
 function apertarTeclasEspecificas(inputcounter) {
         inputs[inputcounter - 1].disabled = true;
@@ -38,10 +39,9 @@ function voltaPalavras(ultimoelemento) {
 }
 
 function guardarNomesChaves() {
-    var numerochaves = localStorage.length;
     var chaves = [];
     
-    for (var i = 0; i < numerochaves; i++) {
+    for (var i = 0; i < localStorage.length; i++) {
         chaves.push(localStorage.key(i));
     }
     
@@ -69,6 +69,7 @@ botaomais.addEventListener('click', () => {
 
 botaosalvar.addEventListener('click', () => {
     var nomesChaves = guardarNomesChaves(); //guardar o nome das chaves em um array
+    console.log(nomesChaves);
     if (nomesChaves.length === 0) { //se o array estiver vazio
         localStorage.setItem(`${inputs[0].value}`, JSON.stringify(inputs[1].value));//salva o nome das chaves
         nomesChaves = guardarNomesChaves();
@@ -89,6 +90,37 @@ botaosalvar.addEventListener('click', () => {
     }
     
     guardarNomesChaves();
+    adicionarAtividadeNaLista();
 })
 
+function adicionarAtividadeNaLista() {
+    /* var atividade = document.createElement('div');
+    atividade.classList.add('atividadeexemplo'); */
+    var chaves = Object.keys(localStorage);
+    for (let i = 0; i < chaves.length; i++) {
+        console.log(chaves[i]);
+        var atividadesChave = localStorage.getItem(chaves[i]);
+        console.log(atividadesChave);
+        
+        
+        
+        
+    }
+    /* chaves.forEach((chave) => {
+        console.log(chave);
+        console.log(valores);
+        var valores = localStorage.getItem(chave);
+        var atividade = document.createElement('div');
+        atividade.classList.add('atividade');
+        atividade.innerHTML = `<h3>${chave}</h3>`;
+        listaPalavras.appendChild(atividade);
+        var atividadeFilha = document.createElement('div');
+        atividadeFilha.classList.add('sliderAtividade');
+        valores.forEach((valor) => {
+            atividadeFilha.innerHTML = `<p>${valor}</p>`;
+        })
+        atividade.appendChild(atividadeFilha);
+    }) */
+    
+}
 
