@@ -68,6 +68,67 @@ botaomais.addEventListener('click', () => {
 })
 
 botaosalvar.addEventListener('click', () => {
+    const atividadesExistentes = JSON.parse(localStorage.getItem("jsonUnico")); //recupera as atividades como objeto em javascript
+
+    const atividades = [{
+        verbo: inputs[0].value,
+        palavras: [
+            inputs[1].value
+        ]
+    }] //armazena a última atividade adicionada em um objeto
+    
+    if (atividadesExistentes === null) { //se não existirem atividades
+        localStorage.setItem("jsonUnico", JSON.stringify(atividades));//adiciona ao localStorage
+    } else {
+
+    for (let i = 0; i < atividadesExistentes.length; i++) { //itera pelos verbos
+        if (atividadesExistentes[i].verbo.includes(atividades[0].verbo[0])) { //se já existirem atividades com o verbo adicionado
+            console.log("existe um verbo assim");
+                if(atividadesExistentes[i].palavras.includes(atividades[0].palavras[0])) { //se já existe a atividade
+                    alert("Essa atividade já existe");
+                } else{
+                    atividadesExistentes[i].palavras.push(atividades[0].palavras[0]); //adiciona a palavra ao verbo
+                    localStorage.setItem("jsonUnico", JSON.stringify(atividadesExistentes));//salva as atividades
+                    alert("Atividade adicionada");
+                }
+            }
+        } 
+
+        
+
+        
+    }
+        
+    
+}
+    
+
+    /* localStorage.setItem("jsonUnico", JSON.stringify(atividades)); */
+)
+
+
+function adicionarAtividadeNaLista() {
+    /* var atividade = document.createElement('div');
+    atividade.classList.add('atividadeexemplo'); */
+    var chaves = Object.keys(localStorage);
+    for (let i = 0; i < chaves.length; i++) {
+        console.log(chaves[i]);
+        var atividadesChave = localStorage.getItem(chaves[i]);
+        console.log(atividadesChave);
+        
+        
+        
+        
+    }
+    
+    
+}
+
+
+
+
+
+/* botaosalvar.addEventListener('click', () => {
     var nomesChaves = guardarNomesChaves(); //guardar o nome das chaves em um array
     console.log(nomesChaves);
     if (nomesChaves.length === 0) { //se o array estiver vazio
@@ -91,36 +152,4 @@ botaosalvar.addEventListener('click', () => {
     
     guardarNomesChaves();
     adicionarAtividadeNaLista();
-})
-
-function adicionarAtividadeNaLista() {
-    /* var atividade = document.createElement('div');
-    atividade.classList.add('atividadeexemplo'); */
-    var chaves = Object.keys(localStorage);
-    for (let i = 0; i < chaves.length; i++) {
-        console.log(chaves[i]);
-        var atividadesChave = localStorage.getItem(chaves[i]);
-        console.log(atividadesChave);
-        
-        
-        
-        
-    }
-    /* chaves.forEach((chave) => {
-        console.log(chave);
-        console.log(valores);
-        var valores = localStorage.getItem(chave);
-        var atividade = document.createElement('div');
-        atividade.classList.add('atividade');
-        atividade.innerHTML = `<h3>${chave}</h3>`;
-        listaPalavras.appendChild(atividade);
-        var atividadeFilha = document.createElement('div');
-        atividadeFilha.classList.add('sliderAtividade');
-        valores.forEach((valor) => {
-            atividadeFilha.innerHTML = `<p>${valor}</p>`;
-        })
-        atividade.appendChild(atividadeFilha);
-    }) */
-    
-}
-
+}) */
