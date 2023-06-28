@@ -17,7 +17,7 @@ function apertarTeclasEspecificas(inputcounter) {
             /* if (event.code === 'Space') {
                 apertarTeclasEspecificas(inputs.length);
             } */
-            if (event.code === 'Backspace' && newElement.value.length === 0) {
+            if (event.key === 'Backspace' && newElement.value.length === 0) {
                 voltaPalavras(newElement);
             }
             if (event.code === 'Enter' && inputs.length > 1) {
@@ -49,12 +49,16 @@ function guardarNomesChaves() {
     return chaves;
 }
 
-
-inputs[inputs.length - 1].addEventListener('keypress', (event) => {
-    if (event.code === 'Space' || event.keyCode === 32 || event.key === 'Space') {
+inputs[inputs.length - 1].addEventListener('keyup', (event) => {
+    if (inputs[inputs.length - 1].value.includes(' ')) {
+        inputs[inputs.length - 1].value = inputs[inputs.length - 1].value.replace(' ', '');
+        apertarTeclasEspecificas(inputs.length);
+    }
+    /* if (event.keyCode === 32) {
         apertarTeclasEspecificas(inputs.length);
         
-    }
+    } */
+    
 })
 
 botaomais.addEventListener('click', () => {
