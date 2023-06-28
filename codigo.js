@@ -51,7 +51,7 @@ function guardarNomesChaves() {
 
 
 inputs[inputs.length - 1].addEventListener('keypress', (event) => {
-    if (event.code === 'Space') {
+    if (event.code === 'Space' || event.keyCode === 32 || event.key === 'Space') {
         apertarTeclasEspecificas(inputs.length);
         
     }
