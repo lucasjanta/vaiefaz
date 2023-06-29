@@ -49,6 +49,28 @@ function guardarNomesChaves() {
     return chaves;
 }
 
+function atualizarLista(listadeatividades){
+    listaPalavras.innerHTML = `<p class="atividadestitulo">Atividades</p>`;
+    for (let i = 0; i < listadeatividades.length; i++) {
+        console.log(listadeatividades[i]);
+        var novoElemento = document.createElement('div');
+        novoElemento.classList.add('atividade');
+        listaPalavras.appendChild(novoElemento);
+        var novoVerbo = document.createElement('h3');
+        novoVerbo.textContent = listadeatividades[i].verbo;
+        novoElemento.appendChild(novoVerbo);
+        var novoSlider = document.createElement('div');
+        novoSlider.classList.add('sliderAtividade');
+        novoElemento.appendChild(novoSlider);
+        for (let u = 0; u < listadeatividades[i].palavras.length; u++) {
+            var novaPalavra = document.createElement('p');
+            novaPalavra.textContent = listadeatividades[i].palavras[u];
+            novoSlider.appendChild(novaPalavra); 
+        }
+        
+    }
+}
+
 inputs[inputs.length - 1].addEventListener('keyup', (event) => {
     if (inputs[inputs.length - 1].value.includes(' ')) {
         inputs[inputs.length - 1].value = inputs[inputs.length - 1].value.replace(' ', '');
@@ -107,6 +129,7 @@ botaosalvar.addEventListener('click', () => {
         
     }
         
+    atualizarLista(JSON.parse(localStorage.getItem("jsonUnico")));
     
 }
     
