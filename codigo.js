@@ -13,11 +13,6 @@ function apertarTeclasEspecificas(inputcounter) {
         divinputs.appendChild(newElement);
         newElement.focus();
         newElement.addEventListener('keyup', (event) => {
-            //Tirar do comentário para sempre impossibilitar a edição do input anterior e criar um novo
-
-            /* if (event.code === 'Space') {
-                apertarTeclasEspecificas(inputs.length);
-            } */
             if (event.key === 'Backspace' && newElement.value.length === 0) {
                 voltaPalavras(newElement);
             }
@@ -35,7 +30,6 @@ function voltaPalavras(ultimoelemento) {
     inputs = document.querySelectorAll('input[type="text"]');
     inputs[inputs.length - 1].disabled = false;
     inputs[inputs.length - 1].focus();
-    
 }
 
 function guardarNomesChaves() {
@@ -71,16 +65,26 @@ function atualizarLista(listadeatividades){
     }
 }
 
+function adicionarAtividadeNaLista() {
+    /* var atividade = document.createElement('div');
+    atividade.classList.add('atividadeexemplo'); */
+    var chaves = Object.keys(localStorage);
+    for (let i = 0; i < chaves.length; i++) {
+        console.log(chaves[i]);
+        var atividadesChave = localStorage.getItem(chaves[i]);
+        console.log(atividadesChave);
+    }
+}
+
+window.onload = () => {
+    atualizarLista(JSON.parse(localStorage.getItem("jsonUnico")));
+}
+
 inputs[inputs.length - 1].addEventListener('keyup', (event) => {
     if (inputs[inputs.length - 1].value.includes(' ')) {
         inputs[inputs.length - 1].value = inputs[inputs.length - 1].value.replace(' ', '');
         apertarTeclasEspecificas(inputs.length);
     }
-    /* if (event.keyCode === 32) {
-        apertarTeclasEspecificas(inputs.length);
-        
-    } */
-    
 })
 
 botaomais.addEventListener('click', () => {
@@ -91,7 +95,6 @@ botaomais.addEventListener('click', () => {
 
 botaosalvar.addEventListener('click', () => {
     const atividadesExistentes = JSON.parse(localStorage.getItem("jsonUnico")); //recupera as atividades como objeto em javascript
-
     const atividades = [{
         verbo: inputs[0].value,
         palavras: [
@@ -104,8 +107,8 @@ botaosalvar.addEventListener('click', () => {
     } else {
         var verbos = []; //Array para salvar os verbos existentes
     for (let i = 0; i < atividadesExistentes.length; i++) { //itera pelos verbos
-        verbos += atividadesExistentes[i].verbo;//Adiciona cada verbo ao array
-        if (atividadesExistentes[i].verbo.includes(atividades[0].verbo[0])) { //se já existirem atividades com o verbo adicionado
+        verbos.push(atividadesExistentes[i].verbo);//Adiciona cada verbo ao array
+        if (atividadesExistentes[i].verbo.includes(atividades[0].verbo)) { //se já existirem atividades com o verbo adicionado
             console.log("existe um verbo assim");
                 if(atividadesExistentes[i].palavras.includes(atividades[0].palavras[0])) { //se já existe a atividade
                     alert("Essa atividade já existe");
@@ -116,71 +119,14 @@ botaosalvar.addEventListener('click', () => {
                 }
             }
         } 
-        if (!verbos.includes(atividades[0].verbo[0])) { //se o verbo não existir
+        if (!verbos.includes(atividades[0].verbo)) { //se o verbo não existir
             atividadesExistentes.push(atividades[0]);
             localStorage.setItem("jsonUnico", JSON.stringify(atividadesExistentes)); //adicionar a atividade com o verbo
         }
         console.log(verbos);
-
-
-
-        
-
-        
     }
         
     atualizarLista(JSON.parse(localStorage.getItem("jsonUnico")));
     
 }
-    
-
-    /* localStorage.setItem("jsonUnico", JSON.stringify(atividades)); */
 )
-
-
-function adicionarAtividadeNaLista() {
-    /* var atividade = document.createElement('div');
-    atividade.classList.add('atividadeexemplo'); */
-    var chaves = Object.keys(localStorage);
-    for (let i = 0; i < chaves.length; i++) {
-        console.log(chaves[i]);
-        var atividadesChave = localStorage.getItem(chaves[i]);
-        console.log(atividadesChave);
-        
-        
-        
-        
-    }
-    
-    
-}
-
-
-
-
-
-/* botaosalvar.addEventListener('click', () => {
-    var nomesChaves = guardarNomesChaves(); //guardar o nome das chaves em um array
-    console.log(nomesChaves);
-    if (nomesChaves.length === 0) { //se o array estiver vazio
-        localStorage.setItem(`${inputs[0].value}`, JSON.stringify(inputs[1].value));//salva o nome das chaves
-        nomesChaves = guardarNomesChaves();
-        
-    } else {
-        var chaveExiste = false;
-        for (let i = 0; i < nomesChaves.length; i++) { //percorre o array
-            if (inputs[0].value === nomesChaves[i]) { //se o nome da chave for igual ao input
-                console.log("ja existe");
-                localStorage.setItem(`${inputs[0].value}`, [localStorage.getItem(`${inputs[0].value}`), JSON.stringify(inputs[1].value)]);
-                chaveExiste = true;
-        }
-        
-        }
-        if(!chaveExiste){
-            localStorage.setItem(`${inputs[0].value}`, JSON.stringify(inputs[1].value));
-        }
-    }
-    
-    guardarNomesChaves();
-    adicionarAtividadeNaLista();
-}) */
