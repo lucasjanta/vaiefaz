@@ -80,8 +80,9 @@ botaosalvar.addEventListener('click', () => {
     if (atividadesExistentes === null) { //se não existirem atividades
         localStorage.setItem("jsonUnico", JSON.stringify(atividades));//adiciona ao localStorage
     } else {
-
+        var verbos = []; //Array para salvar os verbos existentes
     for (let i = 0; i < atividadesExistentes.length; i++) { //itera pelos verbos
+        verbos += atividadesExistentes[i].verbo;//Adiciona cada verbo ao array
         if (atividadesExistentes[i].verbo.includes(atividades[0].verbo[0])) { //se já existirem atividades com o verbo adicionado
             console.log("existe um verbo assim");
                 if(atividadesExistentes[i].palavras.includes(atividades[0].palavras[0])) { //se já existe a atividade
@@ -93,6 +94,13 @@ botaosalvar.addEventListener('click', () => {
                 }
             }
         } 
+        if (!verbos.includes(atividades[0].verbo[0])) { //se o verbo não existir
+            atividadesExistentes.push(atividades[0]);
+            localStorage.setItem("jsonUnico", JSON.stringify(atividadesExistentes)); //adicionar a atividade com o verbo
+        }
+        console.log(verbos);
+
+
 
         
 
