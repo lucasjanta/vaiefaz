@@ -32,7 +32,8 @@ ul img{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
 }
 
 .form{
@@ -76,18 +77,39 @@ ul img{
 
 .palavras{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     width: 100vw;
+    height: 4rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
-.palavra{
-    height: 3rem;
-    width: 80%;
-    background-color: grey;
-    border-radius: 20px;
+.sliderPalavras{
+    display: flex;
+    gap: 1rem;
+    animation: rolar 10s linear infinite;
+}
+
+.sliderPalavras p{
+    white-space: nowrap;
+    padding: 0 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+}
+
+@keyframes rolar {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+    
 }
 
 .divex{
