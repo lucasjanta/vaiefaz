@@ -79,7 +79,7 @@ ul img{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content:space-evenly;
     gap: 1rem;
     width: 100vw;
     height: 4rem;
@@ -90,24 +90,32 @@ ul img{
 }
 
 .sliderPalavras{
-    display: flex;
+    display: inline-flex;
     gap: 1rem;
-    animation: rolar 10s linear infinite;
+    animation: 20s rolar linear infinite;
+    width: auto;
 }
 
 .sliderPalavras p{
+    width: 60vw;
+    align-items: center;
+    text-align: center;
     white-space: nowrap;
     padding: 0 1rem;
+    font-size: 2rem;
     border: 2px solid black;
     border-radius: 1rem;
 }
 
 @keyframes rolar {
     0%{
-        transform: translateX(100%);
+        transform: translateX(50%);
+    }
+    50%{
+        transform: translateX(-50%);
     }
     100%{
-        transform: translateX(-100%);
+        transform: translateX(50%);
     }
     
 }
@@ -162,6 +170,14 @@ ul img{
     border-radius: 1rem;
     padding: 0 0.6rem;
     font-size: 0.8rem;
+}
+
+.atividadesEx{
+    display: inline-block;
+
+    width: 90%;
+    background-color: beige;
+
 }
 
 
