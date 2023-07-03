@@ -47,19 +47,19 @@ function mostrarAtividades(){
     /* sliderPalavras.childNodes[1].getBoundingClientRect().x;
     Posição X dos elementos*/
     var larguraTela = window.innerWidth;
-    var xminimo = (larguraTela / 100) * 30;
-    var xmaximo = (larguraTela / 100) * 70;
+    var xminimo = (larguraTela / 100) * 15;
+    var xmaximo = (larguraTela / 100) * 85;
     console.log("Minimo da tela: " + xminimo + "     " + "Maximo da tela: " + xmaximo);
 
     setInterval((palavraatual) => {
         for (let i = 1; i < arraydeatividades.length; i++) {
 
-            var posicaoxdapalavra = arraydeatividades[i].getBoundingClientRect().x;
+            var posicaoxdapalavra = arraydeatividades[i].getBoundingClientRect().x + (arraydeatividades[i].getBoundingClientRect().width / 2);
             if (posicaoxdapalavra > xminimo && posicaoxdapalavra < xmaximo) {
                 palavraatual = arraydeatividades[i].textContent;
             }
         }
-        for (let i = 1; i < atividades.length; i++) {
+        for (let i = 0; i < atividades.length; i++) {
             if (palavraatual === atividades[i].verbo) {
                 atividadesEx.innerHTML = "";
                 for (let u = 0; u < atividades[i].palavras.length; u++) {
