@@ -92,7 +92,8 @@ ul img{
 .sliderPalavras{
     display: inline-flex;
     gap: 1rem;
-    animation: 20s rolar linear infinite;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
     width: auto;
 }
 
@@ -101,23 +102,11 @@ ul img{
     align-items: center;
     text-align: center;
     white-space: nowrap;
-    padding: 0 1rem;
+    padding: 0 3rem;
     font-size: 2rem;
     border: 2px solid black;
     border-radius: 1rem;
-}
-
-@keyframes rolar {
-    0%{
-        transform: translateX(50%);
-    }
-    50%{
-        transform: translateX(-50%);
-    }
-    100%{
-        transform: translateX(50%);
-    }
-    
+    scroll-snap-align: start;
 }
 
 .divex{
@@ -178,6 +167,7 @@ ul img{
     gap: 1rem;
     width: 70%;
     border: 2px solid black;
+    border-radius: 1rem;
     padding: 1rem;
 
 }

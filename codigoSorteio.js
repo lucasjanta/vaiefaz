@@ -9,24 +9,24 @@ console.log(atividades);
 var verbos = [];
 for (let i = 0; i < atividades.length; i++) {
     //cor aleatoria
-    var cor = gerarCorVibrante();
+    /* var cor = gerarCorVibrante(); */
     verbos.push(atividades[i].verbo);
     var novoVerbo = document.createElement('p');
-    novoVerbo.style.backgroundColor = cor;
+    /* novoVerbo.style.backgroundColor = cor; */
     novoVerbo.textContent = atividades[i].verbo;
     sliderPalavras.appendChild(novoVerbo);
 }
 
 console.log(verbos);
 
-function gerarCorVibrante() {
+/* function gerarCorVibrante() {
     var hue = Math.floor(Math.random() * 360); // Componente vermelho (0-255)
     var saturation = "100%"; // Componente verde (0-255)
     var lightness = "50%"; // Componente azul (0-255)
   
     var cor = `hsl(` + hue + `, ` + saturation + `, ` + lightness +`)`;
     return cor;
-  }
+  } */
 
 function repetiçãoLista(quantidadeElementos){
     //copiar elemento sliderPalavras
@@ -64,6 +64,7 @@ function mostrarAtividades(){
                 atividadesEx.innerHTML = "";
                 for (let u = 0; u < atividades[i].palavras.length; u++) {
                     var atividadesLoop = document.createElement('p');
+                    
                     atividadesLoop.textContent = atividades[i].palavras[u];
                     atividadesEx.appendChild(atividadesLoop);
                 }
