@@ -175,3 +175,49 @@ ul img{
     width: 2.5rem;
     
 }
+
+.pomodorobanner{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.tempo{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.minutos span{
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.segundos span{
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.botoes{
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.botoes button{
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: white;
+    padding: 1rem;
+}
