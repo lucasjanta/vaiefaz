@@ -1,8 +1,6 @@
 const atividades = JSON.parse(localStorage.getItem("jsonUnico"));
-const sliderPalavras = document.querySelector(".sliderPalavras");
-const palavrasnoSlider = document.querySelectorAll(".sliderPalavras p");
 const palavras = document.querySelector(".palavras");
-const atividadesEx = document.querySelector(".atividadesEx");
+const verbosa = document.querySelector(".verbos");
 
 
 console.log(atividades);
@@ -11,10 +9,6 @@ for (let i = 0; i < atividades.length; i++) {
     //cor aleatoria
     /* var cor = gerarCorVibrante(); */
     verbos.push(atividades[i].verbo);
-    var novoVerbo = document.createElement('p');
-    /* novoVerbo.style.backgroundColor = cor; */
-    novoVerbo.textContent = atividades[i].verbo;
-    sliderPalavras.appendChild(novoVerbo);
 }
 
 console.log(verbos);
