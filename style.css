@@ -119,6 +119,7 @@ ul img{
     flex-direction: row;
     gap: 1rem;
     margin-top: 0.6rem;
+    
 }
 
 .sliderAtividade p{
@@ -127,6 +128,7 @@ ul img{
     border-radius: 1rem;
     padding: 0 0.6rem;
     font-size: 0.8rem;
+    
 }
 
 .linha1 {
@@ -161,13 +163,13 @@ ul img{
     align-items: center;
     justify-content: center;
     text-align: center;
+    overflow: hidden;
     
 }
 
 .palavras h3{
     white-space: nowrap;
-    overflow: hidden;
-    
+    margin: 0 1rem;
 }
 
 
@@ -182,6 +184,7 @@ ul img{
 
 .botaogerador img{
     width: 2.5rem;
+    height: 2.5rem;
     
 }
 
@@ -216,8 +219,41 @@ ul img{
 }
 
 .botoes button{
+    display: flex;
     border: 2px solid black;
     border-radius: 8px;
     background-color: white;
     padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+button img{
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+
+}
+
+.efeitooverflowpalavra{
+    animation: slideleftright 4s linear infinite ;
+}
+
+@keyframes slideleftright {
+    0% {
+        transform: translateX(0%);
+    }
+    33% {
+        transform: translateX(-20%);
+    }
+
+    66% {
+        transform: translateX(20%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }

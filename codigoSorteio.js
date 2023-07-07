@@ -66,6 +66,7 @@ botaoDice.addEventListener("click", () => {
                     if (palavraEscolhida.scrollWidth > campoPalavras.clientWidth) {
                     // O elemento está em overflow horizontal
                     console.log('O elemento está em overflow horizontal.');
+                    palavraEscolhida.classList.add('efeitooverflowpalavra');
                     } else {
                     // O elemento não está em overflow horizontal
                     console.log('O elemento não está em overflow horizontal.');
