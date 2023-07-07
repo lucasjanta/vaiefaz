@@ -115,7 +115,6 @@ botaosalvar.addEventListener('click', () => {
                 } else{
                     atividadesExistentes[i].palavras.push(atividades[0].palavras[0]); //adiciona a palavra ao verbo
                     localStorage.setItem("jsonUnico", JSON.stringify(atividadesExistentes));//salva as atividades
-                    alert("Atividade adicionada");
                 }
             }
         } 

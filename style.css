@@ -160,7 +160,16 @@ ul img{
     border-radius: 8px;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    
 }
+
+.palavras h3{
+    white-space: nowrap;
+    overflow: hidden;
+    
+}
+
 
 .botaogerador{
     display: flex;
@@ -179,8 +188,8 @@ ul img{
 .pomodorobanner{
     display: flex;
     flex-direction: column;
-    width: 20rem;
-    height: 20rem;
+    /* width: 20rem;
+    height: 20rem; */
     margin: 0 auto;
     align-items: center;
     justify-content: center;
@@ -193,20 +202,11 @@ ul img{
     align-items: center;
 }
 
-.minutos span{
-    padding: 1rem;
+#temporizador{
+    font-size: 4rem;
     border: 2px solid black;
+    padding: 0.3rem 1rem;
     border-radius: 8px;
-    font-weight: 700;
-    font-size: 2rem;
-}
-
-.segundos span{
-    padding: 1rem;
-    border: 2px solid black;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 2rem;
 }
 
 .botoes{

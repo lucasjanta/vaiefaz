@@ -4,6 +4,7 @@ const campoPalavras = document.querySelector(".palavras");
 const botaoDice = document.querySelector(".botaogerador");
 
 
+
 console.log(atividades);
 var verbos = [];
 for (let i = 0; i < atividades.length; i++) {
@@ -60,6 +61,15 @@ botaoDice.addEventListener("click", () => {
                 selecionarPalavra(verbo);
                 if (contador2 >= 15) {
                     clearInterval(intervaloPalavra);
+                    var palavraEscolhida = document.querySelector('.palavras h3');
+
+                    if (palavraEscolhida.scrollWidth > campoPalavras.clientWidth) {
+                    // O elemento está em overflow horizontal
+                    console.log('O elemento está em overflow horizontal.');
+                    } else {
+                    // O elemento não está em overflow horizontal
+                    console.log('O elemento não está em overflow horizontal.');
+                    }
                 }
             }, 100)
         }
@@ -67,60 +77,69 @@ botaoDice.addEventListener("click", () => {
     /* const intervaloPalavra = setInterval(selecionarPalavra, 100); */
     /* var verbo = selecionarVerbo();
     var palavra = selecionarPalavra(verbo); */
-
+    
     
     
 })
 
+let temporizadorID;
+let minutos = 25;
+let segundos = 0;
 
+const temporizadorElement = document.getElementById("temporizador");
+const btnPlay = document.getElementById("btnPlay");
+const btnPause = document.getElementById("btnPause");
+const btnStop = document.getElementById("btnStop");
 
+function iniciarTemporizador(){
+    temporizadorID = setInterval(decrementarTempo, 1000);
+    atualizarTemporizador();
+    configurarBotoes(false, true, true);
+}
 
-/* function gerarCorVibrante() {
-    var hue = Math.floor(Math.random() * 360); // Componente vermelho (0-255)
-    var saturation = "100%"; // Componente verde (0-255)
-    var lightness = "50%"; // Componente azul (0-255)
+function pausarTemporizador() {
+    clearInterval(temporizadorID);
+    configurarBotoes(true, false, true);
+  }
   
-    var cor = `hsl(` + hue + `, ` + saturation + `, ` + lightness +`)`;
-    return cor;
-  } */
-
-
+  function pararTemporizador() {
+    clearInterval(temporizadorID);
+    minutos = 25;
+    segundos = 0;
+    atualizarTemporizador();
+    configurarBotoes(true, false, false);
+  }
   
-/* function mostrarAtividades(){
-    var arraydeatividades = sliderPalavras.childNodes;
-   
-    var larguraTela = window.innerWidth;
-    var xminimo = (larguraTela / 100) * 15;
-    var xmaximo = (larguraTela / 100) * 85;
-    console.log("Minimo da tela: " + xminimo + "     " + "Maximo da tela: " + xmaximo);
-
-    setInterval((palavraatual) => {
-        for (let i = 1; i < arraydeatividades.length; i++) {
-
-            var posicaoxdapalavra = arraydeatividades[i].getBoundingClientRect().x + (arraydeatividades[i].getBoundingClientRect().width / 2);
-            if (posicaoxdapalavra > xminimo && posicaoxdapalavra < xmaximo) {
-                palavraatual = arraydeatividades[i].textContent;
-            }
-        }
-        for (let i = 0; i < atividades.length; i++) {
-            if (palavraatual === atividades[i].verbo) {
-                atividadesEx.innerHTML = "";
-                for (let u = 0; u < atividades[i].palavras.length; u++) {
-                    var atividadesLoop = document.createElement('p');
-                    
-                    atividadesLoop.textContent = atividades[i].palavras[u];
-                    atividadesEx.appendChild(atividadesLoop);
-                }
-                
-
-            }
-        
-        }
-    }, 100);
-
-    
-    
-} */
-
-
-
+  function decrementarTempo() {
+    if (segundos === 0) {
+      if (minutos === 0) {
+        clearInterval(temporizadorID);
+        alert("Tempo esgotado!");
+        configurarBotoes(true, false, false);
+        return;
+      }
+      minutos--;
+      segundos = 59;
+    } else {
+      segundos--;
+    }
+    atualizarTemporizador();
+  }
+  
+  function atualizarTemporizador() {
+    temporizadorElement.textContent = formatarTempo(minutos, segundos);
+  }
+  
+  function formatarTempo(minutos, segundos) {
+    return `${minutos.toString().padStart(2, "0")}:${segundos.toString().padStart(2, "0")}`;
+  }
+  
+  function configurarBotoes(play, pause, stop) {
+    btnPlay.disabled = !play;
+    btnPause.disabled = !pause;
+    btnStop.disabled = !stop;
+  }
+  
+  btnPlay.addEventListener("click", iniciarTemporizador);
+  btnPause.addEventListener("click", pausarTemporizador);
+  btnStop.addEventListener("click", pararTemporizador);
