@@ -63,6 +63,44 @@ function atualizarLista(listadeatividades){
         }
         
     }
+
+    const palavrasAtividades = document.querySelectorAll('.sliderAtividade p');
+    for (let i = 0; i < palavrasAtividades.length; i++) {
+        /* palavrasAtividades[i].style.position = 'relative'; */
+        let botaoDelete = document.createElement('button');
+        botaoDelete.textContent = 'x';
+        botaoDelete.classList.add('botaoExcluir');
+        palavrasAtividades[i].appendChild(botaoDelete);
+        palavrasAtividades[i].addEventListener('click', (event) => {
+            var filhoespecifico = palavrasAtividades[i].querySelector('.botaoExcluir');
+            var palavraExcluir = palavrasAtividades[i].firstChild.textContent;
+            console.log(palavraExcluir);
+            filhoespecifico.classList.toggle('visualizar');
+            filhoespecifico.addEventListener('click', (event) => {
+                var palavrasExistentes = JSON.parse(localStorage.getItem("jsonUnico"));
+                for (let i = 0; i < palavrasExistentes.length; i++) {
+                    for (let u = 0; u < palavrasExistentes[i].palavras.length; u++) {
+                        if (palavrasExistentes[i].palavras[u] === palavraExcluir) {
+                            palavrasExistentes[i].palavras.splice(u, 1);
+                            if (palavrasExistentes[i].palavras.length === 0) {
+                                palavrasExistentes.splice(i, 1);
+                            }
+                            localStorage.setItem("jsonUnico", JSON.stringify(palavrasExistentes));
+                            atualizarLista(JSON.parse(localStorage.getItem("jsonUnico")));
+                        }
+                    }
+                    
+                }
+                
+                
+
+            })
+        })
+        
+        
+    }
+
+
 }
 
 function adicionarAtividadeNaLista() {
@@ -78,20 +116,7 @@ function adicionarAtividadeNaLista() {
 
 window.onload = () => {
     atualizarLista(JSON.parse(localStorage.getItem("jsonUnico")));
-    const palavrasAtividades = document.querySelectorAll('.sliderAtividade p');
-    for (let i = 0; i < palavrasAtividades.length; i++) {
-        /* palavrasAtividades[i].style.position = 'relative'; */
-        let botaoDelete = document.createElement('button');
-        botaoDelete.textContent = 'x';
-        botaoDelete.classList.add('botaoExcluir');
-        palavrasAtividades[i].appendChild(botaoDelete);
-        palavrasAtividades[i].addEventListener('click', (event) => {
-            var filhoespecifico = palavrasAtividades[i].querySelector('.botaoExcluir');
-            filhoespecifico.classList.toggle('visualizar');
-        })
-        
-        
-    }
+    
 }
 
 inputs[inputs.length - 1].addEventListener('keyup', (event) => {
