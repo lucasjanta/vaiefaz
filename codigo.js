@@ -78,6 +78,15 @@ function adicionarAtividadeNaLista() {
 
 window.onload = () => {
     atualizarLista(JSON.parse(localStorage.getItem("jsonUnico")));
+    const palavrasAtividades = document.querySelectorAll('.sliderAtividade');
+    for (let i = 0; i < palavrasAtividades.length; i++) {
+        if (palavrasAtividades[i].scrollWidth > listaPalavras.scrollWidth) {
+            /* palavrasAtividades[i].classList.add('efeitooverflowpalavra'); */
+            
+            
+        }
+        
+    }
 }
 
 inputs[inputs.length - 1].addEventListener('keyup', (event) => {
@@ -129,3 +138,5 @@ botaosalvar.addEventListener('click', () => {
     
 }
 )
+
+
