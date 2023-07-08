@@ -78,13 +78,18 @@ function adicionarAtividadeNaLista() {
 
 window.onload = () => {
     atualizarLista(JSON.parse(localStorage.getItem("jsonUnico")));
-    const palavrasAtividades = document.querySelectorAll('.sliderAtividade');
+    const palavrasAtividades = document.querySelectorAll('.sliderAtividade p');
     for (let i = 0; i < palavrasAtividades.length; i++) {
-        if (palavrasAtividades[i].scrollWidth > listaPalavras.scrollWidth) {
-            /* palavrasAtividades[i].classList.add('efeitooverflowpalavra'); */
-            
-            
-        }
+        /* palavrasAtividades[i].style.position = 'relative'; */
+        let botaoDelete = document.createElement('button');
+        botaoDelete.textContent = 'x';
+        botaoDelete.classList.add('botaoExcluir');
+        palavrasAtividades[i].appendChild(botaoDelete);
+        palavrasAtividades[i].addEventListener('click', (event) => {
+            var filhoespecifico = palavrasAtividades[i].querySelector('.botaoExcluir');
+            filhoespecifico.classList.toggle('visualizar');
+        })
+        
         
     }
 }
@@ -138,5 +143,7 @@ botaosalvar.addEventListener('click', () => {
     
 }
 )
+
+
 
 
