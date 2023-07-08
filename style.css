@@ -149,6 +149,12 @@ ul img{
     font-size: 0.8rem;
     position: relative;
     margin: 1rem 0;
+    -webkit-touch-callout: none; /* Desabilita a exibição do menu de contexto no iOS */
+  -webkit-user-select: none; /* Desabilita a seleção de texto no iOS */
+  -khtml-user-select: none; /* Desabilita a seleção de texto no Konqueror */
+  -moz-user-select: none; /* Desabilita a seleção de texto no Firefox */
+  -ms-user-select: none; /* Desabilita a seleção de texto no Internet Explorer e Microsoft Edge */
+  user-select: none; /* Desabilita a seleção de texto em outros navegadores */
 }
 
 
