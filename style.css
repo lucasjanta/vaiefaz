@@ -32,12 +32,16 @@ ul img{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
+    margin: 2rem auto;
+    margin-bottom: 3rem;
     width: 90%;
+    
 }
 
 .form{
     display: flex;
+    width: 80%;
+    justify-content: center;
     flex-direction: row;
     gap: 0.5rem;
     flex-wrap: nowrap;
@@ -54,7 +58,10 @@ ul img{
 }
 
 .inputtexts input{
-    width: 50vw;
+    width: 40vw;
+    border: 2px solid black;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .botoesform{
@@ -64,7 +71,18 @@ ul img{
 }
 
 .botoesform input[id="botaomais"]{
-    width: 2rem;
+    width: 1.5rem;
+    border: 2px solid black;
+    border-radius: 16px;
+    background-color: white;
+}
+
+.botoesform input[id="botaosalvar"]{
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: white;
+    padding: 0 0.4rem;
+
 }
 
 .gerador{
@@ -307,4 +325,64 @@ button img{
 
 .visualizar{
     display: flex;
+}
+
+@media screen and (min-width: 801px) {
+   .gerador{
+    display: flex;
+    flex-direction: row;
+   }
+
+   .formulario{
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+}
+
+.form p{
+    white-space: nowrap;
+    font-size: 2rem;
+}
+
+.inputtexts{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.inputtexts input{
+    width: 40vw;
+    height: 2rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.3rem
+}
+
+.botoesform{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.botoesform input[id="botaomais"]{
+    width: 2rem;
+    height: 2rem;
+    font-weight: 700;
+}
+
+.botoesform input[id="botaosalvar"]{
+    height: 2rem;
+}
+    
 }
