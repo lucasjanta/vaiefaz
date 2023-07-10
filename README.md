@@ -1,5 +1,38 @@
 # Vai e Faz
 ## Descrição
 Esse projeto visa ajudar pessoas procrastinadoras como eu a escolher uma das diversas atividades que nos sobrecarregam e botar a mão na massa de vez.
-## Screenshots
+
+## Índice
+
+- [Visão Geral](#visão-geral)
+- [Funcionalidades](#funcionalidades)
+- [Instalação](#instalação)
+- [Utilização](#utilização)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
+
+## Visão Geral
+O site Vai e Faz permite que o usuário adicione atividades, faça um sorteio entre elas e inicie um temporizador pomodoro
+
+## Funcionalidades
+- [x] Adição e remoção de atividades
+- [x] Lista de atividades atualizada automaticamente
+- [x] Página de Sorteio de atividades e Pomodoro
+- [ ] Controle de atividades realizadads
+
+## Instalação
+1. Clone este repositório para o seu computador usando o comando:
+`git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+2. Navegue até a pasta do projeto:
+`cd nome-do-repositorio`
+3. Abra o arquivo `index.html` no seu navegador para visualizar o site.
+
+|      Windows     |      macOS      |        Linux        |
+| ---------------- | --------------- | ------------------- |
+|`start index.html`|`open index.html`|`xdg-open index.html`|
+
+## Utilização
+1. Adicionar atividades (ao pressionar espaço um novo input é criado para diferenciar o verbo inicial do resto da frase
+  
+
 
