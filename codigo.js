@@ -163,7 +163,7 @@ botaosalvar.addEventListener('click', () => {
         }
         console.log(verbos);
     }
-        
+    inputs[1].value = '';     
     atualizarLista(JSON.parse(localStorage.getItem("jsonUnico")));
     
 }
