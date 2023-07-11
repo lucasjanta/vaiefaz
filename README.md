@@ -8,8 +8,6 @@ Esse projeto visa ajudar pessoas procrastinadoras como eu a escolher uma das div
 - [Funcionalidades](#funcionalidades)
 - [Instalação](#instalação)
 - [Utilização](#utilização)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
 
 ## Visão Geral
 O site Vai e Faz permite que o usuário adicione atividades, faça um sorteio entre elas e inicie um temporizador pomodoro
@@ -33,6 +31,10 @@ O site Vai e Faz permite que o usuário adicione atividades, faça um sorteio en
 
 ## Utilização
 1. Adicionar atividades (ao pressionar espaço um novo input é criado para diferenciar o verbo inicial do resto da frase
-  
+   ![Animação](https://github.com/lucasjanta/vaiefaz/assets/6317729/ddc9c036-1d68-4356-8e08-209c7335d298)
+
+
+
+
 
 
