@@ -66,7 +66,8 @@ ul img{
 
 .botoesform{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
     gap: 0.4rem;
 }
 
@@ -154,8 +155,24 @@ ul img{
     padding: 0 2rem;
     width: 100%;
     align-items: start;
-    overflow: scroll;
+    overflow-x: auto;
+    
     scroll-snap-type: x mandatory;
+}
+
+.sliderAtividade::-webkit-scrollbar{
+    height: 1rem;
+}
+
+.sliderAtividade::-webkit-scrollbar-thumb{
+    border-radius: 1rem;
+    background: black;
+}
+
+.sliderAtividade::-webkit-scrollbar-track{
+    background: white;
+    border: 2px solid black;
+    border-radius: 50px;
 }
 
 .sliderAtividade p{
@@ -169,11 +186,11 @@ ul img{
     position: relative;
     margin: 1rem 0;
     -webkit-touch-callout: none; /* Desabilita a exibição do menu de contexto no iOS */
-  -webkit-user-select: none; /* Desabilita a seleção de texto no iOS */
-  -khtml-user-select: none; /* Desabilita a seleção de texto no Konqueror */
-  -moz-user-select: none; /* Desabilita a seleção de texto no Firefox */
-  -ms-user-select: none; /* Desabilita a seleção de texto no Internet Explorer e Microsoft Edge */
-  user-select: none; /* Desabilita a seleção de texto em outros navegadores */
+    -webkit-user-select: none; /* Desabilita a seleção de texto no iOS */
+    -khtml-user-select: none; /* Desabilita a seleção de texto no Konqueror */
+    -moz-user-select: none; /* Desabilita a seleção de texto no Firefox */
+    -ms-user-select: none; /* Desabilita a seleção de texto no Internet Explorer e Microsoft Edge */
+    user-select: none; /* Desabilita a seleção de texto em outros navegadores */
 }
 
 
