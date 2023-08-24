@@ -20,7 +20,7 @@ O site Vai e Faz permite que o usuário adicione atividades, faça um sorteio en
 
 ## Instalação
 1. Clone este repositório para o seu computador usando o comando:
-`git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+`git clone https://github.com/lucasjanta/vaiefaz.git`
 2. Navegue até a pasta do projeto:
 `cd nome-do-repositorio`
 3. Abra o arquivo `index.html` no seu navegador para visualizar o site.
